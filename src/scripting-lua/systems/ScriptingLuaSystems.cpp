@@ -23,7 +23,10 @@ namespace ScriptingLua {
 
 		sol::state luaState;
 		luaState.open_libraries(sol::lib::base, sol::lib::package);
-		luaState.script(TestScriptLua);
+		luaState.script(TestScriptLua, [](lua_State* L, sol::protected_function_result result) {
+			printf("Lua Parsing Error\n");
+			return result;
+		});
 
 		mTickHandle = mScheduler.schedule([this]() {
 		   tick(mRegistry);
