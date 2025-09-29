@@ -1,17 +1,15 @@
 module;
 
-#include <entt/fwd.hpp>
-
 export module ScriptingLua.Systems;
 
-import Core.EnTTRegistry;
 import Core.Scheduler;
+import entt;
 
 export namespace ScriptingLua {
 
 	class ScriptingLuaSystems {
 	public:
-		ScriptingLuaSystems(Core::EnTTRegistry&, Core::Scheduler&);
+		ScriptingLuaSystems(entt::registry&, Core::Scheduler&);
 		~ScriptingLuaSystems();
 
 		ScriptingLuaSystems(ScriptingLuaSystems&&) = delete;
@@ -23,7 +21,7 @@ export namespace ScriptingLua {
 		void tick(entt::registry&);
 
 	private:
-		Core::EnTTRegistry& mRegistry;
+		entt::registry& mRegistry;
 		Core::Scheduler& mScheduler;
 		Core::TaskHandle mTickHandle{};
 	};

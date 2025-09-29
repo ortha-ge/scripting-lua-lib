@@ -4,11 +4,11 @@ cmake_minimum_required(VERSION 3.31)
 find_package(sol2 CONFIG REQUIRED)
 find_package(Lua CONFIG REQUIRED)
 
-set (scripting-lua-lib-src
+set(scripting-lua-lib-src
         src/scripting-lua/systems/ScriptingLuaSystems.cpp
 )
 
-set (scripting-lua-lib-modules
+set(scripting-lua-lib-modules
         src/scripting-lua/services/ScriptingLuaSystemsService.cppm
         src/scripting-lua/systems/ScriptingLuaSystems.cppm
 )
